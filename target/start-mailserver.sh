@@ -215,7 +215,7 @@ function register_functions
   [[ ${ENABLE_FAIL2BAN} -eq 1 ]] &&	_register_start_daemon "_start_daemons_fail2ban" # care :: needs to run after postfix
   [[ ${ENABLE_FETCHMAIL} -eq 1 ]] && _register_start_daemon "_start_daemons_fetchmail"
   [[ ${ENABLE_CLAMAV} -eq 1 ]] &&	_register_start_daemon "_start_daemons_clamav"
-  [[ ${ENABLE_LDAP} -eq 0 ]] && _register_start_daemon "_start_changedetector"
+  [[ ${ENABLE_LDAP} -eq 0 ]] && [[ ${ENABLE_MYSQL} -eq 0 ]] && _register_start_daemon "_start_changedetector"
 
   _register_start_daemon "_start_daemons_amavis"
 
